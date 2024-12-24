@@ -27,6 +27,6 @@ public class Categories {
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "groupNo", referencedColumnName = "no")
+	@JoinColumn(name = "group_no", referencedColumnName = "no")
 	private CategoryGroups group;
 }

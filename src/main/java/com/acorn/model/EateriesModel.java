@@ -14,6 +14,7 @@ import com.acorn.repository.CategoriesRepository;
 import com.acorn.repository.CategoryGroupsRepository;
 import com.acorn.repository.EateriesRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,5 +51,9 @@ public class EateriesModel {
 					.build();
 //			eateriesRepository.save(entity);
 		}
+	}
+	
+	public Eateries getEatery (int no) {
+		return eateriesRepository.findById(no).orElseThrow(() -> new EntityNotFoundException());
 	}
 }

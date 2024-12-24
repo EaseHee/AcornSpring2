@@ -27,6 +27,6 @@ public class CategoryGroups {
 	
 	private String name;
 	
-	@OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-	private List<Categories> categories;
+//	@OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+//	private List<Categories> categories;
 }

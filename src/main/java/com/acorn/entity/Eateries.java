@@ -2,6 +2,8 @@ package com.acorn.entity;
 
 import java.math.BigDecimal;
 
+import com.acorn.dto.EateriesDto;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -46,9 +48,25 @@ public class Eateries {
 	private BigDecimal latitude;
 	
 	@ManyToOne
-	@JoinColumn(name = "categoryNo", referencedColumnName = "no")
+	@JoinColumn(name = "category_no", referencedColumnName = "no")
 	private Categories category;
 	
 //	@ManyToOne
 //	private LocationRoads road;
+	
+	
+	public static EateriesDto fromEntity (Eateries entity) {
+		return EateriesDto.builder()
+						.no(entity.getNo())
+						.name(entity.getName())
+						.viewCount(entity.getViewCount())
+						.favoritesCount(entity.getFavoritesCount())
+						.thumbnail(entity.getThumbnail())
+						.description(entity.getDescription())
+						.rating(entity.getRating())
+						.longitude(entity.getLongitude())
+						.latitude(entity.getLatitude())
+						.category(entity.getCategory())
+						.build();
+	}
 }
